@@ -4,18 +4,18 @@ import App from "@/portfolio/App";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "KALYAN | Editor & VFX Artist" },
+      { title: "JAY RAJU | Editor & VFX Artist" },
       {
         name: "description",
         content:
-          "Kalyan. Editor, VFX Artist & Visual Storyteller from Indramayu. Film, visual effects, 3D, and stories that leave a mark.",
+          "Jay Raju. Editor, VFX Artist & Visual Storyteller from Indramayu. Film, visual effects, 3D, and stories that leave a mark.",
       },
       { name: "theme-color", content: "#090909" },
-      { property: "og:title", content: "KALYAN | Editor & VFX Artist" },
+      { property: "og:title", content: "JAY RAJU | Editor & VFX Artist" },
       {
         property: "og:description",
         content:
-          "Every frame tells a story. Selected films, VFX, 3D and visual experiments by Kalyan.",
+          "Every frame tells a story. Selected films, VFX, 3D and visual experiments by Jay Raju.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
