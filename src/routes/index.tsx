@@ -23,12 +23,12 @@ export const Route = createFileRoute("/")({
     links: [
       {
         rel: "icon",
-        href: "/Asset/img/favicon.svg",
+        href: `${import.meta.env.BASE_URL}Asset/img/favicon.svg`,
         type: "image/svg+xml",
       },
       {
         rel: "preload",
-        href: "/Asset/img/kalyan-portrait.png",
+        href: `${import.meta.env.BASE_URL}Asset/img/kalyan-portrait.png`,
         as: "image",
         fetchPriority: "high",
       },

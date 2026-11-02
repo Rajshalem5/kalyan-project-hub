@@ -6,10 +6,16 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
+// GitHub Pages serves this repo as a project site under /<repo>/, so that build has to be a
+// prerendered static site with a base path. Unset GH_PAGES leaves Lovable's SSR/worker build alone.
+const pages = process.env["GH_PAGES"] === "1";
+
 export default defineConfig({
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
+    ...(pages ? { prerender: { enabled: true, filter: (page: { path: string }) => page.path === "/" } } : {}),
   },
+  ...(pages ? { nitro: false as const, vite: { base: "/kalyan-project-hub/" } } : {}),
 });
