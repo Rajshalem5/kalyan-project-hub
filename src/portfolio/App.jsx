@@ -275,7 +275,7 @@ function ProjectDialog({ project, onClose }) {
   const availableModes = [['layout', 'Layout'], ['solid', 'Solid'], ['material', 'Material'], ['lighting', 'Lighting'], ['final', 'Final render']].filter(([mode]) => activeShot?.[mode] && !(mode === 'solid' && activeShot.hideSolidMode));
   const effectiveMode = activeShot?.[renderMode] ? renderMode : availableModes[0]?.[0];
   const rendered = activeShot?.[effectiveMode] || activeShot?.image || project.image;
-  const sourceUrl = embedType === 'youtube' ? `https://www.youtube.com/watch?v=${embedMedia}` : embedType === 'drive' ? `https://drive.google.com/file/d/${embedMedia}/view` : project.type === 'render' ? rendered : project.media || project.image;
+  const sourceUrl = embedType === 'youtube' ? `https://www.youtube.com/watch?v=${embedMedia}` : embedType === 'drive' ? `https://drive.google.com/file/d/${embedMedia}/view` : project.type === 'render' ? rendered : project.media || (project.type === 'website' ? '' : project.image);
   const changeShot = next => { setMediaLoaded(false); setMediaFailed(false); setShot(next); };
   useEffect(() => {
     const previous = document.activeElement;
