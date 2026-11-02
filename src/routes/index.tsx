@@ -1,24 +1,48 @@
 import { createFileRoute } from "@tanstack/react-router";
+import App from "@/portfolio/App";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "KALYAN | Editor & VFX Artist" },
+      {
+        name: "description",
+        content:
+          "Kalyan. Editor, VFX Artist & Visual Storyteller dari Indramayu. Film, visual effects, 3D, dan cerita yang meninggalkan kesan.",
+      },
+      { name: "theme-color", content: "#090909" },
+      { property: "og:title", content: "KALYAN | Editor & VFX Artist" },
+      {
+        property: "og:description",
+        content:
+          "Every frame tells a story. Selected films, VFX, 3D and visual experiments by Kalyan.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      {
+        rel: "icon",
+        href: "/Asset/img/favicon.svg",
+        type: "image/svg+xml",
+      },
+      {
+        rel: "preload",
+        href: "/Asset/img/kalyan-portrait.png",
+        as: "image",
+        fetchPriority: "high",
+      },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap",
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
+  return <App />;
 }
