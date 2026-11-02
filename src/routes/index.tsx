@@ -8,7 +8,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Kalyan. Editor, VFX Artist & Visual Storyteller dari Indramayu. Film, visual effects, 3D, dan cerita yang meninggalkan kesan.",
+          "Kalyan. Editor, VFX Artist & Visual Storyteller from Indramayu. Film, visual effects, 3D, and stories that leave a mark.",
       },
       { name: "theme-color", content: "#090909" },
       { property: "og:title", content: "KALYAN | Editor & VFX Artist" },
